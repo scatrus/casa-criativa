@@ -80,5 +80,13 @@ server.post('/', function(req, res){
 })
 
 
+server.get('/removeIdeas/:id', function(req, res){
+    const {id}  = req.params;
+    db.run(`delete from ideas where id = ?`, [id], function (err) {
+        if (err) return console.log(err)
+        console.log("deletado", this)
+        return res.redirect('/ideias')
+    })
+});
 
 server.listen(3000)

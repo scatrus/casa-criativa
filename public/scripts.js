@@ -1,3 +1,6 @@
+// const sqlite3 = require("sqlite3").verbose();
+// const db = new sqlite3.Database("../ws.db");
+
 
 function onOff() {
     document
@@ -41,22 +44,9 @@ function checkFields(event) {
     }
 }
 
-
-// function DeleteIdea (ideaId) {
-    
-//     if (confirm("Deseja realmente excluir a Ideia?") === true) {
-//         //alert(ideaId)
-        
-        
-//          db.run(`delete from ideas where id = ?`, [ideaId], function (err) {
-//             if (err) return console.log(err)
-//             console.log("deletado", this)
-//         })
-
-//     }
-// }
-
-
-
- 
-
+function deleteIdea(id) {
+  var conf = confirm("Você quer apagar isso?");
+  if (conf) {
+    window.location.href = '/removeIdeas/' + id;
+  }
+}
